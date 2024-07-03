@@ -8,7 +8,7 @@
         </div>
       </div>
       <div>
-        <img src="/headerphoto.png" alt="" class="ml-16" />
+        <img src="/headerphoto.png" alt="" class="ml-20" />
       </div>
     </div>
   </div>

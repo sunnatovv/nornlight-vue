@@ -1,5 +1,5 @@
 <template>
-  <div class="sticky top-[-40px]">
+  <div class="sticky top-[-40px] z-40 shadow-lg">
     <!-- First component started -->
     <div class="flex justify-between py-2 container">
       <div class="flex gap-6">

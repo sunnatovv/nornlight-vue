@@ -3,28 +3,53 @@
     <!-- First component started -->
     <div class="flex justify-between py-2 container">
       <div class="flex gap-6">
-        <a href="#" class="text-[#a2a2a2] text-sm font-semibold">О компании</a>
-        <a href="#" class="text-[#a2a2a2] text-sm font-semibold"
+        <a
+          href="/about-company"
+          class="text-[#a2a2a2] text-sm font-semibold hover:text-primary"
+          >О компании</a
+        >
+        <a
+          href="/payment"
+          class="text-[#a2a2a2] text-sm font-semibold hover:text-primary"
           >Доставка и оплата</a
         >
-        <a href="#" class="text-[#a2a2a2] text-sm font-semibold">Возврат</a>
-        <a href="#" class="text-[#a2a2a2] text-sm font-semibold">Гарантии</a>
-        <a href="#" class="text-[#a2a2a2] text-sm font-semibold">Контакты</a>
-        <a href="#" class="text-[#a2a2a2] text-sm font-semibold">Блог</a>
+        <a
+          href="/return"
+          class="text-[#a2a2a2] text-sm font-semibold hover:text-primary"
+          >Возврат</a
+        >
+        <a
+          href="/garant"
+          class="text-[#a2a2a2] hover:text-primary text-sm font-semibold"
+          >Гарантии</a
+        >
+        <a
+          href="/contact"
+          class="text-[#a2a2a2] hover:text-primary text-sm font-semibold"
+          >Контакты</a
+        >
+        <a
+          href="/blog"
+          class="text-[#a2a2a2] hover:text-primary text-sm font-semibold"
+          >Блог</a
+        >
       </div>
       <div class="flex gap-6">
-        <p>8 (800) 890-46-56</p>
-        <a href="#" class="text-[#a2a2a2] text-sm font-semibold"
-          >Заказать звонок</a
+        <p class="cursor-pointer">8 (800) 890-46-56</p>
+        <button
+          @click="toggleMenu"
+          class="text-[#a2a2a2] text-sm font-semibold hover:text-primary"
         >
+          Заказать звонок
+        </button>
       </div>
     </div>
     <!-- First component ended -->
 
     <!-- second component started -->
     <div class="bg-white w-full">
-      <div class="container flex justify-between py-4">
-        <img src="/MainLogo.png" class="flex items-center" alt="" />
+      <div class="container flex items-center justify-between py-4">
+        <img src="/MainLogo.png" alt="" />
 
         <!-- kategory -->
         <button
@@ -45,25 +70,87 @@
           />
           <img src="/searchIco.png" alt="" />
         </div>
-        <div class="flex flex-col items-center">
-          <img src="/heart.png" alt="" />
-          <p>Избранное</p>
+        <div class="relative">
+          <router-link to="/favorites">
+            <button class="flex flex-col items-center">
+              <img src="/heart.png" alt="" />
+              <p>Избранное</p>
+            </button>
+          </router-link>
+          <div v-if="store.likedProducts.length > 0" class="absolute top-[-9px] right-6 text-center">
+            <p
+              class="w-[15px] h-[15px] bg-red-600 text-white border rounded-full text-[9px]"
+            >
+              {{ store.likedProducts.length }}
+            </p>
+          </div>
         </div>
+
         <div class="flex flex-col items-center">
           <img src="/antena.png" alt="" />
           <p>Сравнение</p>
         </div>
-        <div class="flex flex-col items-center">
-          <img src="/korzina.png" alt="" />
-          <p>Корзина</p>
+        <div class="relative">
+          <button class="flex flex-col items-center">
+            <img src="/korzina.png" alt="" />
+            <p>Корзина</p>
+          </button>
+          <div v-if="store.basket.length > 0" class="absolute top-[-4px] right-3 text-center">
+            <p
+              class="w-[15px] h-[15px] bg-red-600 text-white border rounded-full text-[9px]"
+            >
+              {{ store.basket.length }}
+            </p>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- second component ended -->
   </div>
+
+  <div v-if="isMenuOpen" class="absolute z-50 mx-auto backdrop-blur-sm w-full">
+    <div
+      class="w-[700px] h-[450px] ml-[28%] mt-[50px] mb-[400px] bg-white border rounded-md"
+    >
+      <div class="flex flex-col py-10 px-12 gap-3">
+        <div class="flex items-center justify-end">
+          <img @click="toggleMenu" class="cursor-pointer" src="/x.png" alt="" />
+        </div>
+        <h3 class="text-[50px] font-semibold">Заполните, и мы перезвоним</h3>
+        <input
+          class="px-3 py-3 outline-none border rounded-md borer-primary"
+          type="text"
+          placeholder="Ваше имя"
+        />
+        <input
+          class="px-3 py-3 outline-none border rounded-md borer-primary"
+          type="text"
+          placeholder="Ваш телефон"
+        />
+
+        <button class="py-3 px-8 rounded-full bg-primary text-white mt-4">
+          Отправить
+        </button>
+      </div>
+    </div>
+  </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { usePiniaStore } from "../store";
+
+const store = usePiniaStore();
+
+const router = useRouter();
+
+const isMenuOpen = ref(false);
+
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value;
+};
+</script>
 
 <style scoped></style>

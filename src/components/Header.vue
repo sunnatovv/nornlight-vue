@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[#F2F2F2] border rounded-2xl">
+  <div class="bg-[#F2F2F2] border rounded-2xl mt-10 pb-6 w-[1490px] mx-auto">
     <div class="container flex py-2">
       <div class="text-6xl w-1/2 text-primary font-semibold py-10 leading-snug">
         <h2 class="pl-4">Скидка 15% <br />на все подвесные светильники</h2>

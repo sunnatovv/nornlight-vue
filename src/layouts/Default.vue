@@ -1,5 +1,6 @@
 <script setup>
 import Navbar from '../components/Navbar.vue';
+import Footer from '../components/Footer.vue';
 
 </script>
 
@@ -7,7 +8,7 @@ import Navbar from '../components/Navbar.vue';
   <div>
     <Navbar />
     <router-view />
-    <!-- <Footer /> -->
+    <Footer />
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="bg-[#f8f8f8]">
-    <div class="container flex justify-between py-12">
+    <div class="container lg:flex justify-between py-12">
       <div>
         <img src="/MainLogo.png" alt="" />
         <h3 class="py-3">8 (800) 890-46-56</h3>

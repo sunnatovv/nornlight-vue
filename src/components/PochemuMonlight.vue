@@ -5,8 +5,8 @@
       <button class="border rounded-full py-3 px-14">О компании</button>
     </div>
 
-    <div class="grid grid-cols-4 shadow-lg gap-5">
-      <div v-for="feature in features" :key="feature.title" class="px-8 py-10 border rounded">
+    <div class="grid lg:grid-cols-4 grid-cols-2  gap-5">
+      <div v-for="feature in features" :key="feature.title" class="px-8 py-10 border rounded hover:shadow-lg">
         <div>
           <img :src="feature.icon" alt="" />
           <h3 class="font-semibold pt-14 text-[18px]">{{ feature.title }}</h3>

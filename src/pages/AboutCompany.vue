@@ -1,5 +1,5 @@
 <template>
-  <div class="container flex py-10">
+  <div class="container flex py-8">
     <div class="w-1/2">
       <div>
         <a href="/home" class="text-[#c7c7c7]"> Главная / </a>

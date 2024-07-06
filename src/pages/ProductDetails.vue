@@ -1,17 +1,21 @@
 <template>
-  <div v-if="product" class="container">
-    <div>
-      <a href="/home" class="text-[#c7c7c7]"> Главная ></a>
-    </div>
-    <div class="flex">
+  <div class="container mt-5">
+    <a href="/home" class="text-[#c7c7c7]"> Главная ></a>
+  </div>
+  <div v-if="product" class="container mt-10">
+    <div class="flex gap-10">
       <div class="w-1/2">
-        <img :src="product.image" class="w-full h-[550px]" alt="Product Image" />
+        <img
+          :src="product.image"
+          class="w-[550px] h-[500px]"
+          alt="Product Image"
+        />
       </div>
       <div class="w-1/2">
         <h3 class="text-[40px] text-primary font-medium">
           {{ product.title }}
         </h3>
-        <div>
+        <div class="py-8">
           <h3 class="text-[#B3B3B3] text-sm">Scott</h3>
           <div>
             <h3 class="text-[#B3B3B3] text-sm">Артикул : 7655-188</h3>
@@ -19,23 +23,29 @@
           <h3 class="text-[#4D932C]">В наличии</h3>
         </div>
 
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-4 ">
           <h3 class="text-[40px] font-semibold">{{ product.price }}₽</h3>
-          <h3 class="text-[18px] text-[#B3B3B3]">{{ product.oldPrice }}₽</h3>
+          <h3 class="text-[18px] text-[#B3B3B3] line-through">
+            {{ product.oldPrice }}₽
+          </h3>
         </div>
-        <p class="text-primary">{{ product.description }}</p>
-        <div class="flex items-center gap-4">
+        <p class="text-primary py-6">{{ product.description }}</p>
+        <div class="flex items-center gap-4 mt-3">
           <div
             class="flex items-center justify-between border rounded-md w-[123px] h-[52px] py-3 px-3"
           >
-            <button class="text-2xl py-2 px-3">-</button>
-            <p>1</p>
-            <button class="text-xl py-2 px-3">+</button>
+            <button class="text-2xl py-2 px-3" @click="decrementProduct">
+              -
+            </button>
+            <p>{{ countProduct }}</p>
+            <button class="text-xl py-2 px-3" @click="incrementProduct">
+              +
+            </button>
           </div>
-          <button class="bg-primary py-3 px-8 border rounded-lg">
+          <button class="bg-primary py-3 px-8 border rounded-lg text-white">
             В корзину
           </button>
-          <button @click="store.addProductLiked(product)">
+          <button class="ml-2" @click="store.addProductLiked(product)">
             <box-icon
               v-if="isLiked(product)"
               name="heart"
@@ -43,7 +53,7 @@
               color="#ff0004"
             ></box-icon>
             <box-icon v-else name="heart"></box-icon>
-            </button>
+          </button>
         </div>
       </div>
     </div>
@@ -58,12 +68,19 @@ import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import axios from "axios";
 import { usePiniaStore } from "../store";
-import 'boxicons'
+import "boxicons";
 
 const store = usePiniaStore();
 
 const route = useRoute();
 const product = ref(null);
+const countProduct = ref(1);
+const incrementProduct = () => {
+  countProduct.value++;
+};
+const decrementProduct = () => {
+  if (countProduct.value > 1) countProduct.value--;
+};
 
 const isLiked = (product) => {
   return store.likedProducts.some((p) => p.id === product.id);

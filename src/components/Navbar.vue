@@ -1,5 +1,5 @@
 <template>
-  <div class="sticky top-[-40px] z-40 shadow-lg">
+  <div class="max-sm:hidden sticky top-[-40px] z-40 shadow-lg">
     <!-- First component started -->
     <div class="flex justify-between py-2 container">
       <div class="flex gap-6">
@@ -49,7 +49,9 @@
     <!-- second component started -->
     <div class="bg-white w-full">
       <div class="container flex items-center justify-between py-4">
-        <img src="/MainLogo.png" alt="" />
+        <router-link to="/home">
+          <img src="/MainLogo.png" alt="" />
+        </router-link>
 
         <!-- kategory -->
         <button
@@ -77,7 +79,10 @@
               <p>Избранное</p>
             </button>
           </router-link>
-          <div v-if="store.likedProducts.length > 0" class="absolute top-[-9px] right-6 text-center">
+          <div
+            v-if="store.likedProducts.length > 0"
+            class="absolute top-[-9px] right-6 text-center"
+          >
             <p
               class="w-[15px] h-[15px] bg-red-600 text-white border rounded-full text-[9px]"
             >
@@ -95,7 +100,10 @@
             <img src="/korzina.png" alt="" />
             <p>Корзина</p>
           </button>
-          <div v-if="store.basket.length > 0" class="absolute top-[-4px] right-3 text-center">
+          <div
+            v-if="store.basket.length > 0"
+            class="absolute top-[-4px] right-3 text-center"
+          >
             <p
               class="w-[15px] h-[15px] bg-red-600 text-white border rounded-full text-[9px]"
             >
@@ -135,6 +143,113 @@
       </div>
     </div>
   </div>
+
+  <!-- navbar for mobile -->
+  <div class="lg:hidden bg-white w-full">
+    <div class="container flex items-center justify-between py-4">
+      <box-icon
+        class="size-10"
+        name="bar-chart-square"
+        type="solid"
+        rotate="270"
+      ></box-icon>
+      <router-link to="/home">
+        <img src="/MainLogo.png" alt="" />
+      </router-link>
+      <div class="flex items-center gap-4 py-2">
+        <div class="relative">
+          <router-link to="/favorites">
+            <button class="flex flex-col items-center">
+              <img src="/heart.png" alt="" />
+            </button>
+          </router-link>
+          <div
+            v-if="store.likedProducts.length > 0"
+            class="absolute top-[-9px] right-6 text-center"
+          >
+            <p
+              class="w-[15px] h-[15px] bg-red-600 text-white border rounded-full text-[9px]"
+            >
+              {{ store.likedProducts.length }}
+            </p>
+          </div>
+        </div>
+
+        <div class="relative">
+          <button class="flex flex-col items-center">
+            <img src="/korzina.png" alt="" />
+          </button>
+          <div
+            v-if="store.basket.length > 0"
+            class="absolute top-[-4px] right-3 text-center"
+          >
+            <p
+              class="w-[15px] h-[15px] bg-red-600 text-white border rounded-full text-[9px]"
+            >
+              {{ store.basket.length }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="container flex flex-col py-4">
+      <div class="flex items-center justify-between">
+        <router-link to="/home">
+          <img src="/MainLogo.png" alt="" />
+        </router-link>
+
+        <div class="flex items-center gap-4 py-2">
+          <div class="relative">
+            <router-link to="/favorites">
+              <button class="flex flex-col items-center">
+                <img src="/heart.png" alt="" />
+                <p>Избранное</p>
+              </button>
+            </router-link>
+            <div
+              v-if="store.likedProducts.length > 0"
+              class="absolute top-[-9px] right-6 text-center"
+            >
+              <p
+                class="w-[15px] h-[15px] bg-red-600 text-white border rounded-full text-[9px]"
+              >
+                {{ store.likedProducts.length }}
+              </p>
+            </div>
+          </div>
+
+          <div class="relative">
+            <button class="flex flex-col items-center">
+              <img src="/korzina.png" alt="" />
+              <p>Корзина</p>
+            </button>
+            <div
+              v-if="store.basket.length > 0"
+              class="absolute top-[-4px] right-3 text-center"
+            >
+              <p
+                class="w-[15px] h-[15px] bg-red-600 text-white border rounded-full text-[9px]"
+              >
+                {{ store.basket.length }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="container flex justify-between px-6 items-center border rounded-full w-[500px]"
+      >
+        <input
+          type="text"
+          class="py-3 w-full px-2 pr-3 outline-none"
+          placeholder="Поиск по товарам"
+        />
+        <img src="/searchIco.png" alt="" />
+      </div>
+    </div> -->
+  </div>
+
+  <!-- navbar for mobile -->
 </template>
 
 <script setup>

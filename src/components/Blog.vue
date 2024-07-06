@@ -7,7 +7,7 @@
       </button>
     </div>
 
-    <div class="grid grid-cols-3 gap-5  mt-4">
+    <div class="grid lg:grid-cols-3 grid-cols-1 gap-5  mt-4">
       <div v-for="item in blog">
         <div class="h-[435px] border rounded-r-lg hover:shadow-md">
           <img class="border rounded-md" :src="item.image" alt="" />

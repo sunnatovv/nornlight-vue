@@ -1,10 +1,10 @@
 <template>
   <div class="container mt-14 mb-10">
-    <div class="flex justify-between">
+    <div class="lg:flex justify-between">
       <div class="w-[100px]">
-        <h3 class="text-[40px] font-semibold ">Производство светильников</h3>
+        <h3 class="lg:text-[40px] text-[26px] font-semibold ">Производство светильников</h3>
       </div>
-      <div class="w-1/2">
+      <div class="lg:w-1/2">
         <p class="py-3">
           Интернет-магазин NORNLIGHT предлагает широкий ассортимент светильников
           для освещения вашего дома или офиса. У нас вы найдете разнообразные

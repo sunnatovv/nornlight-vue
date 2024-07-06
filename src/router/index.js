@@ -58,6 +58,11 @@ const router = createRouter({
           name: "favorites",
           component: () => import("../pages/Favorites.vue"),
         },
+        {
+          path: "blog",
+          name: "blog",
+          component: () => import("../pages/Blog.vue"),
+        },
       ],
     },
     // {

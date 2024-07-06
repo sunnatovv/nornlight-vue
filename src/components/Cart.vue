@@ -1,6 +1,6 @@
 <template>
   <div
-    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4"
+    class="grid grid-cols-1 max-sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4"
   >
     <div
       v-for="product in products"
@@ -14,7 +14,7 @@
         <img
           :src="product.image"
           alt=""
-          class="w-[90%] mx-auto h-[200px] mb-4 mt-2 px-7"
+          class="lg:w-[90%] w-full mx-auto lg:h-[200px] h-[120px] mb-4 mt-2 px-7"
         />
       </router-link>
       <div class="product-details">
@@ -32,12 +32,12 @@
             </button>
           </div>
         </div>
-        <div class="flex justify-between py-6 items-center">
+        <div class="flex justify-between lg:py-6 py-2 items-center">
           <div>
-            <p class="text-sm font-bold line-through text-left text-[#9f9f9f]">
+            <p class="lg:text-sm font-bold line-through text-left text-[#9f9f9f]">
               {{ product.oldPrice }}₽
             </p>
-            <p class="text-xl font-bold">{{ product.price }}₽</p>
+            <p class="lg:text-xl text-[18px] font-bold">{{ product.price }}₽</p>
           </div>
           <button @click="store.addProductBasket(product)">
             <img src="/vkorzine.png" alt="" />

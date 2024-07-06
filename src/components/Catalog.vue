@@ -2,33 +2,50 @@
   <div class="container mt-10">
     <div class="flex justify-between py-6">
       <h3 class="text-[40px]">Каталог</h3>
-      <button class="border rounded-full py-2 px-10 flex items-center gap-3 hover:bg-primary hover:text-white duration-500">
+      <button
+        class="max-sm:hidden border rounded-full lg:py-2 lg:px-10 flex items-center gap-3 hover:bg-primary hover:text-white duration-500"
+      >
         Весь каталог
-        <box-icon name='right-arrow-alt' color='' ></box-icon>
+        <box-icon name="right-arrow-alt" color=""></box-icon>
       </button>
     </div>
 
     <!--  -->
 
-    <div class="grid ld:grid-cols-3 grid-cols-2 gap-6">
+    <div class="grid lg:grid-cols-3 grid-cols-2 gap-6">
       <div
         v-for="item in prods"
         class="bg-[rgb(242,242,242)] border rounded-2xl relative h-[260px] py-6 pl-10"
       >
         <h3 class="text-[20px] text-primary w-[100px]">{{ item.title }}</h3>
-        <img :src="item.icon" alt="" class="absolute lg:right-4 lg:top-5 max-sm:size-32" />
+        <img
+          :src="item.icon"
+          alt=""
+          class="absolute lg:right-4 lg:top-5 max-sm:size-32"
+        />
         <div class="absolute bottom-6 flex items-center gap-4">
           <h3 class="text-primary">{{ item.price }}</h3>
           <img src="/grayArrov.png" alt="" />
         </div>
       </div>
     </div>
+
+    <!-- mobile button -->
+    <div class="mt-8">
+      <button
+        class="lg:hidden border rounded-full lg:py-2 py-3 lg:px-10 px-32 flex items-center gap-4 hover:bg-primary hover:text-white duration-500"
+      >
+        Весь каталог
+        <box-icon name="right-arrow-alt" color=""></box-icon>
+      </button>
+    </div>
+    <!-- mobile button -->
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
-import 'boxicons' 
+import "boxicons";
 
 const prods = ref([
   {

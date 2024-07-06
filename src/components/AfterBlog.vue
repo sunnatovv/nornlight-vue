@@ -2,7 +2,7 @@
   <div class="container mt-14 mb-10">
     <div class="lg:flex justify-between">
       <div class="w-[100px]">
-        <h3 class="lg:text-[40px] text-[26px] font-semibold ">Производство светильников</h3>
+        <h3 class="lg:text-[40px] text-[24px] font-semibold ">Производство светильников</h3>
       </div>
       <div class="lg:w-1/2">
         <p class="py-3">

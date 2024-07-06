@@ -12,10 +12,10 @@
 
     <!--  -->
 
-    <div class="grid lg:grid-cols-3 grid-cols-2 gap-6">
+    <div class="grid lg:grid-cols-3 grid-cols-2 lg:gap-6 gap-4">
       <div
         v-for="item in prods"
-        class="bg-[rgb(242,242,242)] border rounded-2xl relative h-[260px] py-6 pl-10"
+        class="bg-[rgb(242,242,242)] border rounded-2xl relative h-[260px] py-6 lg:pl-10 px-8"
       >
         <h3 class="text-[20px] text-primary w-[100px]">{{ item.title }}</h3>
         <img

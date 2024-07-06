@@ -23,7 +23,7 @@
           <h3 class="text-[#4D932C]">В наличии</h3>
         </div>
 
-        <div class="flex items-center gap-4 ">
+        <div class="flex items-center gap-4">
           <h3 class="text-[40px] font-semibold">{{ product.price }}₽</h3>
           <h3 class="text-[18px] text-[#B3B3B3] line-through">
             {{ product.oldPrice }}₽
@@ -42,7 +42,10 @@
               +
             </button>
           </div>
-          <button class="bg-primary py-3 px-8 border rounded-lg text-white">
+          <button
+            @click="addToBasket(product, countProduct)"
+            class="bg-primary py-3 px-8 border rounded-lg text-white"
+          >
             В корзину
           </button>
           <button class="ml-2" @click="store.addProductLiked(product)">
@@ -75,6 +78,7 @@ const store = usePiniaStore();
 const route = useRoute();
 const product = ref(null);
 const countProduct = ref(1);
+
 const incrementProduct = () => {
   countProduct.value++;
 };
@@ -104,6 +108,10 @@ onMounted(() => {
     fetchProduct(productId);
   }
 });
+
+const addToBasket = (product, quantity) => {
+  store.addProductBasket(product, quantity);
+};
 </script>
 
 <style lang="scss" scoped></style>

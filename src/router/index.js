@@ -63,6 +63,11 @@ const router = createRouter({
           name: "blog",
           component: () => import("../pages/Blog.vue"),
         },
+        {
+          path: "korzina",
+          name: "korzina",
+          component: () => import("../pages/Korzina.vue"),
+        },
       ],
     },
     // {

@@ -96,10 +96,12 @@
           <p>Сравнение</p>
         </div>
         <div class="relative">
-          <button class="flex flex-col items-center">
-            <img src="/korzina.png" alt="" />
-            <p>Корзина</p>
-          </button>
+          <router-link to="/korzina">
+            <button class="flex flex-col items-center">
+              <img src="/korzina.png" alt="" />
+              <p>Корзина</p>
+            </button>
+          </router-link>
           <div
             v-if="store.basket.length > 0"
             class="absolute top-[-4px] right-3 text-center"

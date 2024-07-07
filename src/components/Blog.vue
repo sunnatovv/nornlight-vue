@@ -2,9 +2,14 @@
   <div class="container mt-10 pb-10">
     <div class="flex justify-between py-6">
       <h3 class="lg:text-[40px] text-[24px] font-semibold text-primary">Блог</h3>
-      <button class="max-sm:hidden border rounded-full py-3 px-14 text-primary">
+      <router-link to="/blog">
+        <button
+        class="max-sm:hidden border rounded-full lg:py-3 lg:px-10 flex items-center gap-3 hover:bg-primary hover:text-white duration-500"
+      >
         Перейти в блог
+        <box-icon name="right-arrow-alt" color=""></box-icon>
       </button>
+      </router-link>
     </div>
 
     <div class="grid lg:grid-cols-3 grid-cols-1 gap-5  mt-4">
@@ -40,6 +45,7 @@ onMounted(() => {
       console.error("There was an error fetching the blog:", error);
     });
 });
+
 </script>
 
 <style lang="scss" scoped></style>

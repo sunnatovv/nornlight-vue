@@ -2,7 +2,14 @@
   <div class="container mt-10">
     <div class="flex justify-between py-6">
       <h3 class="lg:text-[40px] text-[24px]">Почему NORNLIGHT?</h3>
-      <button class="max-sm:hidden border rounded-full py-3 px-14">О компании</button>
+      <router-link to="/about-company">
+        <button
+        class="max-sm:hidden border rounded-full lg:py-3 lg:px-10 flex items-center gap-3 hover:bg-primary hover:text-white duration-500"
+      >
+        О компании
+        <box-icon name="right-arrow-alt" color=""></box-icon>
+      </button>
+      </router-link>
     </div>
 
     <div class="grid lg:grid-cols-4 grid-cols-2  gap-5">

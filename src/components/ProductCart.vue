@@ -4,9 +4,14 @@
       <h3 class="lg:text-[40px] text-[24px] font-semibold">
         Популярные товары
       </h3>
-      <button class="max-sm:hidden border rounded-full py-3 px-14">
+      <router-link to="/all-products">
+        <button
+        class="max-sm:hidden border rounded-full lg:py-3 lg:px-10 flex items-center gap-3 hover:bg-primary hover:text-white duration-500"
+      >
         Все товары
+        <box-icon name="right-arrow-alt" color=""></box-icon>
       </button>
+      </router-link>
     </div>
 
     <div>

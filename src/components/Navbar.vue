@@ -155,7 +155,7 @@
       <div class="container flex items-center justify-between pb-2">
         <div class="flex items-center gap-8">
           <img @click="hamburgerMenu" src="/hamburger.png" alt="" />
-          <router-link @click="hamburgerMenu" to="/home">
+          <router-link to="/home">
             <img src="/MainLogo.png" alt="" />
           </router-link>
         </div>
@@ -163,7 +163,7 @@
         <div class="flex items-center gap-4 py-2">
           <div class="relative">
             <router-link to="/favorites">
-              <button class="flex flex-col items-center">
+              <button class="flex items-center">
                 <img src="/heart.png" alt="" />
               </button>
             </router-link>
@@ -180,7 +180,7 @@
           </div>
 
           <div class="relative">
-            <button class="flex flex-col items-center">
+            <button class="flex items-center">
               <img src="/korzina.png" alt="" />
             </button>
             <div
@@ -209,38 +209,46 @@
     </div>
   </div>
   <div
-    v-if="isHambOpen"
+    v-if="isHambOpen" @click="hamburgerMenu"
     class="w-full h-full backdrop-blur-sm absolute bg-[#454545] bg-opacity-50"
   ></div>
 
   <div v-if="isHambOpen" class="h-[519px] w-full absolute bg-white pt-2">
     <div class="flex flex-col">
       <router-link
+        @click="hamburgerMenu"
         class="shadow-sm py-4 text-center text-[#a2a2a2]"
-        to="/company"
+        to="/about-company"
         >О компании</router-link
       >
       <router-link
+        @click="hamburgerMenu"
         class="shadow-sm py-4 text-center text-[#a2a2a2]"
         to="/payment"
         >Доставка и оплата</router-link
       >
       <router-link
+        @click="hamburgerMenu"
         class="shadow-sm py-4 text-center text-[#a2a2a2]"
         to="/return"
         >Возврат</router-link
       >
       <router-link
+        @click="hamburgerMenu"
         class="shadow-sm py-4 text-center text-[#a2a2a2]"
         to="/garant"
         >Гарантии</router-link
       >
       <router-link
+        @click="hamburgerMenu"
         class="shadow-sm py-4 text-center text-[#a2a2a2]"
         to="/contact"
         >Контакты</router-link
       >
-      <router-link class="shadow-sm py-4 text-center text-[#a2a2a2]" to="/blog"
+      <router-link
+        @click="hamburgerMenu"
+        class="shadow-sm py-4 text-center text-[#a2a2a2]"
+        to="/blog"
         >Блог</router-link
       >
     </div>

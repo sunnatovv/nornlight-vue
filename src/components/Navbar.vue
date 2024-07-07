@@ -54,12 +54,15 @@
         </router-link>
 
         <!-- kategory -->
-        <button
-          class="bg-primary text-white flex py-3 px-8 border rounded-full gap-3 items-center"
-        >
-          <img class="" src="/cateIco.png" alt="" />
-          <p>Каталог</p>
-        </button>
+        <router-link to="/catalog">
+          <button
+            class="bg-primary text-white flex py-3 px-8 border rounded-full gap-3 items-center"
+          >
+            <img class="" src="/cateIco.png" alt="" />
+            <p>Каталог</p>
+          </button>
+        </router-link>
+
         <!-- kategory -->
 
         <div
@@ -121,7 +124,7 @@
 
   <div v-if="isMenuOpen" class="absolute z-50 mx-auto backdrop-blur-sm w-full">
     <div
-      class="w-[700px] h-[450px] ml-[28%] mt-[50px] mb-[400px] bg-white border rounded-md"
+      class="lg:w-[700px] lg:h-[450px] lg:ml-[28%] mt-[50px] mb-[400px] bg-white border rounded-md"
     >
       <div class="flex flex-col py-10 px-12 gap-3">
         <div class="flex items-center justify-end">
@@ -147,70 +150,26 @@
   </div>
 
   <!-- navbar for mobile -->
-  <div class="lg:hidden bg-white w-full">
-    <div class="container flex items-center justify-between py-4">
-      <box-icon
-        class="size-10"
-        name="bar-chart-square"
-        type="solid"
-        rotate="270"
-      ></box-icon>
-      <router-link to="/home">
-        <img src="/MainLogo.png" alt="" />
-      </router-link>
-      <div class="flex items-center gap-4 py-2">
-        <div class="relative">
-          <router-link to="/favorites">
-            <button class="flex flex-col items-center">
-              <img src="/heart.png" alt="" />
-            </button>
+  <div class="sticky top-[0px] z-40 shadow-lg">
+    <div class="lg:hidden bg-white w-full py-4">
+      <div class="container flex items-center justify-between pb-2">
+        <div class="flex items-center gap-8">
+          <img @click="hamburgerMenu" src="/hamburger.png" alt="" />
+          <router-link @click="hamburgerMenu" to="/home">
+            <img src="/MainLogo.png" alt="" />
           </router-link>
-          <div
-            v-if="store.likedProducts.length > 0"
-            class="absolute top-[-9px] right-6 text-center"
-          >
-            <p
-              class="w-[15px] h-[15px] bg-red-600 text-white border rounded-full text-[9px]"
-            >
-              {{ store.likedProducts.length }}
-            </p>
-          </div>
         </div>
-
-        <div class="relative">
-          <button class="flex flex-col items-center">
-            <img src="/korzina.png" alt="" />
-          </button>
-          <div
-            v-if="store.basket.length > 0"
-            class="absolute top-[-4px] right-3 text-center"
-          >
-            <p
-              class="w-[15px] h-[15px] bg-red-600 text-white border rounded-full text-[9px]"
-            >
-              {{ store.basket.length }}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- <div class="container flex flex-col py-4">
-      <div class="flex items-center justify-between">
-        <router-link to="/home">
-          <img src="/MainLogo.png" alt="" />
-        </router-link>
 
         <div class="flex items-center gap-4 py-2">
           <div class="relative">
             <router-link to="/favorites">
               <button class="flex flex-col items-center">
                 <img src="/heart.png" alt="" />
-                <p>Избранное</p>
               </button>
             </router-link>
             <div
               v-if="store.likedProducts.length > 0"
-              class="absolute top-[-9px] right-6 text-center"
+              class="absolute top-[-9px] lg:right-6 right-[-5px] text-center"
             >
               <p
                 class="w-[15px] h-[15px] bg-red-600 text-white border rounded-full text-[9px]"
@@ -223,11 +182,10 @@
           <div class="relative">
             <button class="flex flex-col items-center">
               <img src="/korzina.png" alt="" />
-              <p>Корзина</p>
             </button>
             <div
               v-if="store.basket.length > 0"
-              class="absolute top-[-4px] right-3 text-center"
+              class="absolute top-[-4px] lg:right-3 right-[-5px] text-center"
             >
               <p
                 class="w-[15px] h-[15px] bg-red-600 text-white border rounded-full text-[9px]"
@@ -239,7 +197,7 @@
         </div>
       </div>
       <div
-        class="container flex justify-between px-6 items-center border rounded-full w-[500px]"
+        class="container flex justify-between px-6 items-center border rounded-full"
       >
         <input
           type="text"
@@ -248,7 +206,62 @@
         />
         <img src="/searchIco.png" alt="" />
       </div>
-    </div> -->
+    </div>
+  </div>
+  <div
+    v-if="isHambOpen"
+    class="w-full h-full backdrop-blur-sm absolute bg-[#454545] bg-opacity-50"
+  ></div>
+
+  <div v-if="isHambOpen" class="h-[519px] w-full absolute bg-white pt-2">
+    <div class="flex flex-col">
+      <router-link
+        class="shadow-sm py-4 text-center text-[#a2a2a2]"
+        to="/company"
+        >О компании</router-link
+      >
+      <router-link
+        class="shadow-sm py-4 text-center text-[#a2a2a2]"
+        to="/payment"
+        >Доставка и оплата</router-link
+      >
+      <router-link
+        class="shadow-sm py-4 text-center text-[#a2a2a2]"
+        to="/return"
+        >Возврат</router-link
+      >
+      <router-link
+        class="shadow-sm py-4 text-center text-[#a2a2a2]"
+        to="/garant"
+        >Гарантии</router-link
+      >
+      <router-link
+        class="shadow-sm py-4 text-center text-[#a2a2a2]"
+        to="/contact"
+        >Контакты</router-link
+      >
+      <router-link class="shadow-sm py-4 text-center text-[#a2a2a2]" to="/blog"
+        >Блог</router-link
+      >
+    </div>
+    <router-link class="flex justify-center my-4" to="/catalog">
+      <button
+        class="bg-primary text-white flex py-3 px-8 w-full justify-center border rounded-full mx-9 gap-3 items-center"
+      >
+        <img class="" src="/cateIco.png" alt="" />
+        <p>Каталог</p>
+      </button>
+    </router-link>
+
+    <div class="flex flex-col gap-6 items-center justify-center">
+      <p class="cursor-pointer text-[16px]">8 (800) 890-46-56</p>
+      <button
+        @click="toggleMenu"
+        class="text-[#a2a2a2] text-sm font-semibold hover:text-primary"
+      >
+        Заказать звонок
+      </button>
+    </div>
   </div>
 
   <!-- navbar for mobile -->
@@ -256,17 +269,18 @@
 
 <script setup>
 import { ref } from "vue";
-import { useRouter } from "vue-router";
 import { usePiniaStore } from "../store";
 
 const store = usePiniaStore();
 
-const router = useRouter();
-
 const isMenuOpen = ref(false);
+const isHambOpen = ref(false);
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
+};
+const hamburgerMenu = () => {
+  isHambOpen.value = !isHambOpen.value;
 };
 </script>
 

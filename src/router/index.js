@@ -68,6 +68,11 @@ const router = createRouter({
           name: "korzina",
           component: () => import("../pages/Korzina.vue"),
         },
+        {
+          path: "catalog",
+          name: "catalog",
+          component: () => import("../pages/Catalog.vue"),
+        },
       ],
     },
     // {

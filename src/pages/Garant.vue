@@ -1,15 +1,15 @@
 <template>
-  <div class="container mx-auto flex justify-between  py-8 mb-14">
+  <div class="container mx-auto lg:flex justify-between  py-8 mb-14">
     <div>
       <div>
         <a href="/home" class="text-gray-400"> Главная / </a>
         <a href="/garant">Гарантии</a>
       </div>
       <div>
-        <h2 class="text-[60px] text-primary font-bold">Гарантии</h2>
+        <h2 class="lg:text-[60px] text-[45px] text-primary font-bold">Гарантии</h2>
       </div>
     </div>
-    <div class="w-1/2 mt-16">
+    <div class="lg:w-1/2 mt-16">
       <h3 class="text-xl font-semibold mb-4">Обмен и возврат по желанию покупателя</h3>
       <p class="mb-4">
         Все товары в магазине «NornLight» имеют гарантию. Она заявляется

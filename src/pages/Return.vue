@@ -1,15 +1,15 @@
 <template>
-  <div class="container flex justify-between pb-24">
+  <div class="container lg:flex justify-between pb-24">
     <div class="mt-8">
       <div>
         <a href="/home" class="text-[#c7c7c7]"> Главная / </a>
         <a href="/return">Возврат</a>
       </div>
       <div>
-        <h2 class="text-[60px] text-primary font-bold">Возврат</h2>
+        <h2 class="lg:text-[60px] text-[45px] text-primary font-bold">Возврат</h2>
       </div>
     </div>
-    <div class="w-1/2 mt-16">
+    <div class="lg:w-1/2 lg:mt-16 mt-4">
       <!-- first -->
       <div>
         <h2 class="text-[24px] text-primary font-semibold py-4">

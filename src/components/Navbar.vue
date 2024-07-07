@@ -154,9 +154,9 @@
     <div class="lg:hidden bg-white w-full py-4">
       <div class="container flex items-center justify-between pb-2">
         <div class="flex items-center gap-8">
-          <img @click="hamburgerMenu" src="/hamburger.png" alt="" />
+          <img @click="hamburgerMenu"  src="/hamburger.png" alt="" />
           <router-link to="/home">
-            <img src="/MainLogo.png" alt="" />
+            <img v-if="!isHambOpen" src="/MainLogo.png" alt="" />
           </router-link>
         </div>
 
@@ -180,9 +180,11 @@
           </div>
 
           <div class="relative">
-            <button class="flex items-center">
+            <router-link to="/korzina">
+              <button class="flex items-center">
               <img src="/korzina.png" alt="" />
             </button>
+            </router-link>
             <div
               v-if="store.basket.length > 0"
               class="absolute top-[-4px] lg:right-3 right-[-5px] text-center"
@@ -210,10 +212,10 @@
   </div>
   <div
     v-if="isHambOpen" @click="hamburgerMenu"
-    class="w-full h-full backdrop-blur-sm absolute bg-[#454545] bg-opacity-50"
+    class="w-full h-full backdrop-blur-sm fixed z-30 bg-[#454545] bg-opacity-50"
   ></div>
 
-  <div v-if="isHambOpen" class="h-[519px] w-full absolute bg-white pt-2">
+  <div v-if="isHambOpen" class="h-[519px] w-full fixed z-40 bg-white pt-2">
     <div class="flex flex-col">
       <router-link
         @click="hamburgerMenu"

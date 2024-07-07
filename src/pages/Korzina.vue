@@ -166,10 +166,10 @@
           <p class="text-24px font-bold">{{ totalProductsPrice + 560 }} ₽</p>
         </div>
 
-        <div class="mt-6 max-sm:w-fullr">
+        <div class="mt-6 max-sm:flex max-sm:justify-center">
           <button
             type="submit"
-            class="lg:w-[324px] w-[350px] py-3 bg-primary text-white rounded-full"
+            class="w-[324px] max-sm:w-[330px] py-3 bg-primary text-white rounded-full"
           >
             Купить
           </button>
